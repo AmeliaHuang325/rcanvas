@@ -29,7 +29,8 @@ set_canvas_domain <- function(domain) {
 
 #' @rdname apihelpers
 check_token <- function() {
-  token <- keyring::key_get("rcanvas_CANVAS_API_TOKEN")
+  #token <- keyring::key_get("rcanvas_CANVAS_API_TOKEN")
+  token <- Sys.getenv("rcanvas_CANVAS_API_TOKEN")
   if (identical(token, "")) {
     stop("Please set your Canvas API token with set_canvas_token.",
          call. = FALSE)
